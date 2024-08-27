@@ -3,7 +3,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 import SoftBox from "../../components/SoftBox";
 import { SxProps } from '@mui/system';
-import { Theme } from '@mui/material';
+import { Theme } from '@mui/material/styles';
 import typography from "../../assets/theme/base/typography";
 import SoftTypography from "../../components/SoftTypography";
 

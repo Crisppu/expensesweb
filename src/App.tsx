@@ -1,18 +1,13 @@
-//import { useTheme,Theme } from '@mui/system';
-import Footer from './examples/Footer';
+import Dashboard from './layouts/dashboard';
 
 
 
 function App() {
- // const theme: Theme = useTheme();
-  //console.log(theme.palette,'hola')
-  //console.log(theme)
-
-  return (
-    <>
-      <Footer />
-    </>
-  )
+    return (
+        <>
+        <Dashboard />
+        </>
+    )
 }
 
 export default App
