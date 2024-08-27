@@ -1,13 +1,28 @@
 import { Dispatch } from "react";
-type ActionType =
-  | { type: "MINI_SIDENAV"; value: boolean }
-  | { type: "TRANSPARENT_SIDENAV"; value: boolean }
-  | { type: "SIDENAV_COLOR"; value: string }
-  | { type: "TRANSPARENT_NAVBAR"; value: boolean }
-  | { type: "FIXED_NAVBAR"; value: boolean }
-  | { type: "OPEN_CONFIGURATOR"; value: boolean }
-  | { type: "DIRECTION"; value: string }
-  | { type: "LAYOUT"; value: string };
+import { ActionType, StateType } from "./SoftUITypes";
+// Soft UI Dashboard React reducer
+export function reducer(state: StateType, action: ActionType) : StateType {
+    switch (action.type) {
+        case "MINI_SIDENAV":
+        return { ...state, miniSidenav: action.value };
+        case "TRANSPARENT_SIDENAV":
+        return { ...state, transparentSidenav: action.value };
+        case "SIDENAV_COLOR":
+        return { ...state, sidenavColor: action.value };
+        case "TRANSPARENT_NAVBAR":
+        return { ...state, transparentNavbar: action.value };
+        case "FIXED_NAVBAR":
+        return { ...state, fixedNavbar: action.value };
+        case "OPEN_CONFIGURATOR":
+        return { ...state, openConfigurator: action.value };
+        case "DIRECTION":
+        return { ...state, direction: action.value };
+        case "LAYOUT":
+        return { ...state, layout: action.value };
+        default:
+        throw new Error(`Unhandled action type: ${action}`);
+    }
+}
 
 
 export const setMiniSidenav = (dispatch: Dispatch<ActionType>, value: boolean) => {
