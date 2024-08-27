@@ -14,9 +14,13 @@ Coded by www.creative-tim.com
 */
 // src/App.tsx
 import React from 'react';
-import SoftBoxRoot from './SoftBoxRoot';
+import { SoftBoxRoot } from './SoftBoxRoot';
+import { Theme } from '@mui/material/styles';
+import { SxProps } from '@mui/system';
+
+
     interface OwnerState {
-        variant?:  "contained" | "outlined"; // Solo estos dos valores son permitidos
+        variant?:  string; // Solo estos dos valores son permitidos
         bgColor?: string;
         color?: string;
         opacity?: number;
@@ -27,17 +31,36 @@ import SoftBoxRoot from './SoftBoxRoot';
     interface SoftBoxProps {
         ownerState?: OwnerState;
         children?: React.ReactNode;
+        key?: string;
         // Aquí puedes añadir otras propiedades que quieras pasar a SoftBox
-        // Por ejemplo: className?: string;
+        className?: string;
         width?: string;
         display?: string;
+        justifyContent?: string;
+        alignItems?: string;
+        color?: string;
+        component?: React.ElementType;
+        px?: number;
+        lineHeight?: number;
+        fontSize?: string;
+        sx?: SxProps<Theme>;
+        mb?: number;
+        mx?: number;
     }
 
-const SoftBox: React.FC<SoftBoxProps> = ({ownerState,children, ...reset}) => {
+const SoftBox: React.FC<SoftBoxProps> = ({sx,ownerState, children, ...rest}) => {
     return (
         <SoftBoxRoot
-        ownerState={{...ownerState}}
-        {...reset}
+        // width={width}
+        // display={display}
+        // justifyContent={justifyContent}
+        // alignItems={alignItems}
+        sx={sx}
+        ownerState={{
+            ...ownerState,
+        }}
+        // px={px}
+        {...rest}
         >
             {children}
         </SoftBoxRoot>
@@ -45,44 +68,3 @@ const SoftBox: React.FC<SoftBoxProps> = ({ownerState,children, ...reset}) => {
 };
 
 export default SoftBox;
-
-
-// import { forwardRef } from "react";
-
-// // prop-types is a library for typechecking of props
-// import PropTypes from "prop-types";
-//import SoftBoxRoot from 'components/SoftBox/SoftBoxRoot';
-
-// // Custom styles for SoftBox
-
-// const SoftBox = forwardRef(
-//   ({ variant, bgColor, color, opacity, borderRadius, shadow, ...rest }, ref) => (
-//     <SoftBoxRoot
-//       {...rest}
-//       ref={ref}
-//       ownerState={{ variant, bgColor, color, opacity, borderRadius, shadow }}
-//     />
-//   )
-// );
-
-// // Setting default values for the props of SoftBox
-// SoftBox.defaultProps = {
-//   variant: "contained",
-//   bgColor: "transparent",
-//   color: "dark",
-//   opacity: 1,
-//   borderRadius: "none",
-//   shadow: "none",
-// };
-
-// // Typechecking props for the SoftBox
-// SoftBox.propTypes = {
-//   variant: PropTypes.oneOf(["contained", "gradient"]),
-//   bgColor: PropTypes.string,
-//   color: PropTypes.string,
-//   opacity: PropTypes.number,
-//   borderRadius: PropTypes.string,
-//   shadow: PropTypes.string,
-// };
-
-// export default SoftBox;

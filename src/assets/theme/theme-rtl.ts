@@ -81,16 +81,29 @@ import svgIcon from "./components/svgIcon";
 // import rgba from 'assets/theme/functions/rgba';
 
 declare module '@mui/material/styles' {
+    interface PaletteColor {
+        focus?: string;
+    }
+
+    interface SimplePaletteColorOptions {
+        focus?: string;
+    }
+    interface TypeText {
+        main?: string;
+        focus?: string;
+    }
     interface Palette{
+        //text:TypeText;
         // Añadir `transparent` como una propiedad opcional
         transparent: {main: string;};
-        white: { main: string;};
+        white: { main: string; focus: string;};
         black: {
             light: string;
             main: string;
+            focus: string;
         };
-        light: { main: string;};
-        dark: {main: string;};
+        light: { main: string; focus: string;};
+        dark: {main: string; focus: string;};
         gradients: {
             primary: {
                 main: string;
@@ -227,13 +240,14 @@ declare module '@mui/material/styles' {
     // allow configuration using `createTheme`
     interface PaletteOptions {
         transparent?: {main?: string;};
-        white?: { main?: string;};
+        white?: { main?: string; focus?: string;};
         black?: {
             light?: string;
             main?: string;
+            focus?: string;
         };
-        light?:{ main?: string;};
-        dark?:{main?: string;};
+        light?:{ main?: string; focus?: string;};
+        dark?:{main?: string; focus?: string;};
         gradients?:{
             primary?: {
                 main?: string;
@@ -462,20 +476,20 @@ declare module '@mui/material/styles' {
             borderColor: string;
             borderWidth: {
                 0:number;
-                1: number;
-                2: number;
-                3: number;
-                4: number;
-                5: number;
+                1: string;
+                2: string;
+                3: string;
+                4: string;
+                5: string;
             };
             borderRadius: {
-                xs: number;
-                sm: number;
-                md: number;
-                lg: number;
-                xl: number;
-                xxl: number;
-                section: number;
+                xs: string;
+                sm: string;
+                md: string;
+                lg: string;
+                xl: string;
+                xxl: string;
+                section: string;
             };
         }
         functions: {
@@ -487,7 +501,7 @@ declare module '@mui/material/styles' {
             inset: string
           ) => string;
           hexToRgb: (hex: string) => string;
-          linearGradient: ( color: string, colorState: string, angle: number) => string;
+          linearGradient: (color: string, colorState: string) => string;
           pxToRem: (number: number, baseNumber: number) => string;
           rgba: (color: string, opacity: number) => string;
         }
@@ -549,7 +563,7 @@ declare module '@mui/material/styles' {
             inset?: string
           ) => string;
           hexToRgb?: (hex: string) => string;
-          linearGradient?: ( color: string, colorState: string, angle: number) => string;
+          linearGradient?: ( color: string, colorState: string) => string;
           pxToRem?: (number: number, baseNumber: number) => string;
           rgba?: (color: string, opacity: number) => string;
         };
@@ -566,27 +580,34 @@ const theme = createTheme({
       // Propiedades principales de PaletteOptions:
       primary:{
         main: colors.primary.main,
+        focus: colors.primary.focus,
       },
       secondary:{
         main: colors.secondary.main,
+        focus: colors.secondary.focus,
       },
       error:{
         main: colors.error.main,
+        focus: colors.error.focus,
       },
       warning:{
         main: colors.warning.main,
+        focus: colors.warning.focus,
       },
       info:{
         main: colors.info.main,
+        focus: colors.info.focus,
       },
       success:{
         main: colors.success.main,
+        focus: colors.success.focus,
       },
       background: {
         default: colors.background.default,
       },
       text: {
-        primary: colors.text.main,
+        main: colors.text.main,
+        //focus: colors.text.focus,
       },
       // Propiedades adicionales de PaletteOptions(se configuran de forma opcional):
       transparent: {
@@ -594,16 +615,21 @@ const theme = createTheme({
       },
       white: {
         main: colors.white.main,
+        focus: colors.white.focus,
       },
       black: {
         light: colors.black.light,
         main: colors.black.main,
+        focus: colors.black.focus,
       },
       light: {
         main: colors.light.main,
+        focus: colors.light.focus,
+
       },
       dark: {
         main: colors.dark.main,
+        focus: colors.dark.focus,
       },
       grey: {
         100: colors.grey[100],
@@ -617,6 +643,22 @@ const theme = createTheme({
         900: colors.grey[900],
       },
         gradients: {
+            dark: {
+                main: colors.gradients.dark.main,
+                state: colors.gradients.dark.state,
+            },
+            error: {
+                main: colors.gradients.error.main,
+                state: colors.gradients.error.state,
+            },
+            info: {
+                main: colors.gradients.info.main,
+                state: colors.gradients.info.state,
+            },
+            light: {
+                main: colors.gradients.light.main,
+                state: colors.gradients.light.state,
+            },
             primary: {
                 main: colors.gradients.primary.main,
                 state: colors.gradients.primary.state,
@@ -624,10 +666,6 @@ const theme = createTheme({
             secondary: {
                 main: colors.gradients.secondary.main,
                 state: colors.gradients.secondary.state,
-            },
-            info: {
-                main: colors.gradients.info.main,
-                state: colors.gradients.info.state,
             },
             success: {
                 main: colors.gradients.success.main,
