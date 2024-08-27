@@ -502,7 +502,7 @@ declare module '@mui/material/styles' {
           ) => string;
           hexToRgb: (hex: string) => string;
           linearGradient: (color: string, colorState: string) => string;
-          pxToRem: (number: number, baseNumber: number) => string;
+          pxToRem: (number: number, baseNumber?: number) => string;
           rgba: (color: string, opacity: number) => string;
         }
     }
@@ -564,7 +564,7 @@ declare module '@mui/material/styles' {
           ) => string;
           hexToRgb?: (hex: string) => string;
           linearGradient?: ( color: string, colorState: string) => string;
-          pxToRem?: (number: number, baseNumber: number) => string;
+          pxToRem?: (number: number, baseNumber?: number) => string;
           rgba?: (color: string, opacity: number) => string;
         };
     }
