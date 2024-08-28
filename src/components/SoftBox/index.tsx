@@ -45,7 +45,16 @@ import { SxProps } from '@mui/system';
         fontSize?: string;
         sx?: SxProps<Theme>;
         mb?: number;
+        py?:number;
         mx?: number;
+        bgColor?:string;
+        variant?:  string;
+        p?:number;
+        height?:string;
+        borderRadius?:string;
+        shadow?:string;
+        ml?:number;
+        marginLeft?:string;
     }
 
 const SoftBox: React.FC<SoftBoxProps> = ({sx,ownerState, children, ...rest}) => {

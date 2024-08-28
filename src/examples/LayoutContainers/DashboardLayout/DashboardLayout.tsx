@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SoftBox from '../../../components/SoftBox';
 import { SxProps } from '@mui/system';
 import { Theme } from '@mui/material/styles';
 import { useSoftUIController } from '../../../context/SoftUIContextHook';
+import { setLayout } from '../../../context/SoftUIReducer';
+import { useLocation } from 'react-router-dom';
 interface DashboardLayoutProps {
     children: React.ReactNode;
 }
@@ -10,8 +12,11 @@ interface DashboardLayoutProps {
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({children}) => {
     const [state, dispatch] = useSoftUIController();
     const { miniSidenav } = state;
+    const { pathname } = useLocation();
 
-    console.log({state, dispatch});
+    useEffect(() => {
+       setLayout(dispatch, "dashboard");
+    },[dispatch, pathname]);
     const styles: SxProps<Theme> = (theme) => ({
         p: 3,
         position: "relative",
