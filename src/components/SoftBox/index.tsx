@@ -61,6 +61,8 @@ import { SxProps } from '@mui/system';
         alt?: string;
         position?: "absolute" | "relative" | "fixed" | "sticky";
         left?: number;
+        mr?:number;
+        mt?:number;
 
     }
 

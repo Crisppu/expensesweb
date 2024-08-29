@@ -12,6 +12,10 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import TouchAppIcon from '@mui/icons-material/TouchApp';
+import PaymentIcon from '@mui/icons-material/Payment';
+import ExtensionIcon from '@mui/icons-material/Extension';
 interface ChartDataset {
     label: string;
     data: number[];
@@ -20,10 +24,10 @@ interface ChartDataset {
     datasets: ChartDataset;
 }
 
-interface Icon {
+export interface Icon {
     color: string;
-    component: string;
-}interface Progress {
+    component: React.ElementType;
+}export interface Progress {
     content: string;
     percentage: number;
 }interface Item {
@@ -38,33 +42,33 @@ export interface ReportsBarChartData {
 }
 
 
-const reportsBarChartData: ReportsBarChartData = {
+const ReportsBarChartData: ReportsBarChartData = {
     chart: {
       labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       datasets: { label: "Sales", data: [450, 200, 100, 220, 500, 100, 400, 230, 500] },
     },
     items: [
       {
-        icon: { color: "primary", component: "library_books" },
+        icon: { color: "primary", component: LibraryBooksIcon },
         label: "users",
         progress: { content: "36K", percentage: 60 },
       },
       {
-        icon: { color: "info", component: "touch_app" },
+        icon: { color: "info", component: TouchAppIcon },
         label: "clicks",
         progress: { content: "2M", percentage: 90 },
       },
       {
-        icon: { color: "warning", component: "payment" },
+        icon: { color: "warning", component: PaymentIcon },
         label: "sales",
         progress: { content: "$435", percentage: 30 },
       },
       {
-        icon: { color: "error", component: "extension" },
+        icon: { color: "error", component: ExtensionIcon },
         label: "items",
         progress: { content: "43", percentage: 50 },
       },
     ],
 };
 
-export default reportsBarChartData;
+export default ReportsBarChartData;

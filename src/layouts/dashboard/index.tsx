@@ -10,11 +10,11 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BuildByDevelopers from './components/BuildByDevelopers';
 import WorkWithTheRockets from './components/WorkWithTheRockets';
-import reportsBarChartData from './data/reportsBarChartData';
+import ReportsBarChartData from './data/reportsBarChartData';
 import ReportsBarChart from '../../examples/Charts/ReportsBarChart';
 
 const Dashboard: React.FC = () => {
-    const { chart, items } = reportsBarChartData;
+    const { chart, items } = ReportsBarChartData;
     console.log(chart, items)
 
     return (
@@ -84,7 +84,6 @@ const Dashboard: React.FC = () => {
                             chart={chart}
                             items={items}
                             >
-
                             </ReportsBarChart>
                         </Grid>
 
