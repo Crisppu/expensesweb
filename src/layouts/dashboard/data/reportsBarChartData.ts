@@ -12,8 +12,33 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+interface ChartDataset {
+    label: string;
+    data: number[];
+}interface ChartData {
+    labels: string[];
+    datasets: ChartDataset;
+}
 
-const reportsBarChartData = {
+interface Icon {
+    color: string;
+    component: string;
+}interface Progress {
+    content: string;
+    percentage: number;
+}interface Item {
+    icon: Icon;
+    label: string;
+    progress: Progress;
+}
+
+export interface ReportsBarChartData {
+    chart: ChartData;
+    items: Item[];
+}
+
+
+const reportsBarChartData: ReportsBarChartData = {
     chart: {
       labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       datasets: { label: "Sales", data: [450, 200, 100, 220, 500, 100, 400, 230, 500] },

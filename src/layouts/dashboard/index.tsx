@@ -8,8 +8,15 @@ import PaidIcon from '@mui/icons-material/Paid';
 import PublicIcon from '@mui/icons-material/Public';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import BuildByDevelopers from './components/BuildByDevelopers';
+import WorkWithTheRockets from './components/WorkWithTheRockets';
+import reportsBarChartData from './data/reportsBarChartData';
+import ReportsBarChart from '../../examples/Charts/ReportsBarChart';
 
 const Dashboard: React.FC = () => {
+    const { chart, items } = reportsBarChartData;
+    console.log(chart, items)
+
     return (
         <DashboardLayout>
             <SoftBox py={4}>
@@ -55,9 +62,33 @@ const Dashboard: React.FC = () => {
                             icon={{ color: "info", component: ShoppingCartIcon }}
                             />
                         </Grid>
+                    </Grid>
+                </SoftBox>
+                <SoftBox mb={3}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} lg={7}>
+                            <BuildByDevelopers />
+                        </Grid>
+                        <Grid item xs={12} lg={5}>
+                            <WorkWithTheRockets />
+                        </Grid>
+                    </Grid>
+                </SoftBox>
+                <SoftBox>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} lg={5}>
+                            <ReportsBarChart
+                            title="active users"
+                            description="Users who visited the website in the last 30 days"
+                            color="info"
+                            chart={chart}
+                            items={items}
+                            >
+
+                            </ReportsBarChart>
+                        </Grid>
 
                     </Grid>
-
                 </SoftBox>
 
             </SoftBox>

@@ -50,11 +50,18 @@ import { SxProps } from '@mui/system';
         bgColor?:string;
         variant?:  string;
         p?:number;
+        pt?:number;
         height?:string;
         borderRadius?:string;
         shadow?:string;
         ml?:number;
         marginLeft?:string;
+        flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+        src?: string;
+        alt?: string;
+        position?: "absolute" | "relative" | "fixed" | "sticky";
+        left?: number;
+
     }
 
 const SoftBox: React.FC<SoftBoxProps> = ({sx,ownerState, children, ...rest}) => {
