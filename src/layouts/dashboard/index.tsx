@@ -11,11 +11,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BuildByDevelopers from './components/BuildByDevelopers';
 import WorkWithTheRockets from './components/WorkWithTheRockets';
 import ReportsBarChartData from './data/reportsBarChartData';
-import ReportsBarChart from '../../examples/Charts/ReportsBarChart';
+import ReportsBarChart from '../../examples/Charts/BarCharts/ReportsBarChart';
 
 const Dashboard: React.FC = () => {
     const { chart, items } = ReportsBarChartData;
-    console.log(chart, items)
+    //console.log(chart, items)
 
     return (
         <DashboardLayout>
@@ -74,7 +74,7 @@ const Dashboard: React.FC = () => {
                         </Grid>
                     </Grid>
                 </SoftBox>
-                <SoftBox>
+                <SoftBox mb={3}>
                     <Grid container spacing={3}>
                         <Grid item xs={12} lg={5}>
                             <ReportsBarChart
@@ -83,8 +83,8 @@ const Dashboard: React.FC = () => {
                             color="info"
                             chart={chart}
                             items={items}
-                            >
-                            </ReportsBarChart>
+                            />
+                            
                         </Grid>
 
                     </Grid>

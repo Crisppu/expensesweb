@@ -1,9 +1,9 @@
 import React from 'react'
-import { Icon, Progress} from '../../../layouts/dashboard/data/reportsBarChartData';
-import typography from '../../../assets/theme/base/typography';
-import SoftBox from '../../../components/SoftBox';
-import SoftTypography from '../../../components/SoftTypography';
-import SoftProgress from '../../../components/SoftProgress';
+import { Icon, Progress} from '../../../../layouts/dashboard/data/reportsBarChartData';
+import typography from '../../../../assets/theme/base/typography';
+import SoftBox from '../../../../components/SoftBox';
+import SoftTypography from '../../../../components/SoftTypography';
+import SoftProgress from '../../../../components/SoftProgress';
 interface BarReportsChartItemProps {
     color: "primary" | "secondary" | "info" | "success" | "warning" | "error" | "light" | "dark" | undefined;
     icon:Icon;
@@ -13,7 +13,6 @@ interface BarReportsChartItemProps {
 
 }
 export const BarReportsChartItem: React.FC<BarReportsChartItemProps> = ({color, icon, label, progress}) => {
-    console.log(color,progress,"aquiiii")
   const {size}=typography;
     return (
         <SoftBox width="100%">
@@ -50,7 +49,4 @@ export const BarReportsChartItem: React.FC<BarReportsChartItemProps> = ({color, 
         </SoftBox>
     )
 }
-// TODOs
-/**
- * TODO: realizar el SoftProgress en  components/SoftProgress
- */
+

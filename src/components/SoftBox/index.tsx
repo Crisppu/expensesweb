@@ -63,6 +63,8 @@ import { SxProps } from '@mui/system';
         left?: number;
         mr?:number;
         mt?:number;
+        padding?:string;
+        pr?:number;
 
     }
 

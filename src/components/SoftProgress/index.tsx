@@ -1,5 +1,6 @@
 import React from 'react'
 import SoftTypography from '../SoftTypography';
+import { SoftProgressRoot } from './SoftProgressRoot';
 interface SoftProgressProps {
     variant?: string;
     color?: "primary" | "secondary" | "info" | "success" | "warning" | "error" | "light" | "dark" | undefined;
@@ -8,7 +9,7 @@ interface SoftProgressProps {
     href?: string;
 }
 const SoftProgress: React.FC<SoftProgressProps> = ({variant,color,value,label, ...rest}) => {
-    console.log(variant,color,value,label);
+    //console.log(variant,color,value,label);
     return (
         <>
             {label && (
@@ -24,15 +25,13 @@ const SoftProgress: React.FC<SoftProgressProps> = ({variant,color,value,label, .
                     {value}%
                 </SoftTypography>
             )}
-            {/* TODO:aqui me quede */}
-            {/* <SoftProgressRoot
+             <SoftProgressRoot
             {...rest}
             variant="determinate"
             value={value}
             ownerState={{ color, value, variant }}
-            /> */}
+            />
         </>
-    
     )
 }
 
