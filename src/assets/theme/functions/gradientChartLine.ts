@@ -13,15 +13,30 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+import rgba from "./rgba";
+
 /**
   The gradientChartLine() function helps you to create a gradient color for the chart line
  */
 
 // Soft UI Dashboard React helper functions
-import rgba from "assets/theme/functions/rgba";
+// import rgba from "assets/theme/functions/rgba";
 
-function gradientChartLine(chart, color, opacity = 0.2) {
+function gradientChartLine(
+  chart: HTMLCanvasElement ,
+  color: string,
+  opacity: number = 0.2
+): CanvasGradient | null {
+  if (!chart) {
+    console.error('El elemento canvas no existe');
+    return null;
+  }
   const ctx = chart.getContext("2d");
+  if (!ctx) {
+    console.error('No se pudo obtener el contexto 2D');
+    return null;
+  }
+
   const gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
   const primaryColor = rgba(color, opacity).toString();
 

@@ -13,7 +13,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 // src/App.tsx
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { SoftBoxRoot } from './SoftBoxRoot';
 import { Theme } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
@@ -65,26 +65,19 @@ import { SxProps } from '@mui/system';
         mt?:number;
         padding?:string;
         pr?:number;
-
+        ref?:React.Ref<HTMLElement>;
     }
 
-const SoftBox: React.FC<SoftBoxProps> = ({sx,ownerState, children, ...rest}) => {
-    return (
+const SoftBox = forwardRef<HTMLElement,SoftBoxProps>(({ownerState, children, ...rest},ref) => {
+    //console.log(ref);
+    return(
         <SoftBoxRoot
-        // width={width}
-        // display={display}
-        // justifyContent={justifyContent}
-        // alignItems={alignItems}
-        sx={sx}
-        ownerState={{
-            ...ownerState,
-        }}
-        // px={px}
         {...rest}
+        ref={ref}
+        ownerState={{ ...ownerState }}
         >
-            {children}
+        {children}
         </SoftBoxRoot>
-    );
-};
-
+    )
+});
 export default SoftBox;

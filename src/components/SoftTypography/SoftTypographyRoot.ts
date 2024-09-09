@@ -32,8 +32,7 @@ export const SoftTypographyRoot = styled(Typography)<TypographyProps>(({ theme, 
         position: "relative",
         zIndex: 1,
     });
-console.log(color)
-    //TODO the problem is ,hay que pasar por props el text color sino truena
+    //nota: the problem is ,hay que pasar por props el text color sino truena
 
     const colorKey = color as keyof typeof theme.palette;
     const mainColor = palette[colorKey] as {main:string};

@@ -20,7 +20,7 @@ import configs from './configs';
 interface ReportsBarChartProps {
     color: "primary" | "secondary" | "info" | "success" | "warning" | "error" | "light" | "dark" ;
     title: string;
-    description: string;
+    description:React.ReactNode| string;
     chart: ReportsBarChartData["chart"];
     items: ReportsBarChartData["items"];
 }

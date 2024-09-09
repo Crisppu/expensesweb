@@ -12,11 +12,15 @@ import BuildByDevelopers from './components/BuildByDevelopers';
 import WorkWithTheRockets from './components/WorkWithTheRockets';
 import ReportsBarChartData from './data/reportsBarChartData';
 import ReportsBarChart from '../../examples/Charts/BarCharts/ReportsBarChart';
+import GradientLineChart from '../../examples/Charts/LineCharts/GradientLineChart';
+import typography from '../../assets/theme/base/typography';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import SoftTypography from '../../components/SoftTypography';
+import gradientLineChartData from './data/gradientLineChartData';
 
 const Dashboard: React.FC = () => {
     const { chart, items } = ReportsBarChartData;
-    //console.log(chart, items)
-
+    const {size} = typography
     return (
         <DashboardLayout>
             <SoftBox py={4}>
@@ -79,12 +83,51 @@ const Dashboard: React.FC = () => {
                         <Grid item xs={12} lg={5}>
                             <ReportsBarChart
                             title="active users"
-                            description="Users who visited the website in the last 30 days"
+                            description={
+                                <>
+                                  (<strong>+23%</strong>) than last week
+                                </>
+                              }
                             color="info"
                             chart={chart}
                             items={items}
                             />
-                            
+                        </Grid>
+                        <Grid item xs={12} lg={7}>
+                            <GradientLineChart
+                            title='sales Overview'
+                            height="20.25rem"
+                            chart={gradientLineChartData}
+                            description={
+                                <SoftBox display='flex' alignItems='center'>
+                                    <SoftBox fontSize={size.lg} ownerState={{
+                                        color:'success',
+                                    }}
+                                    mb={0.3}
+                                    mr={0.5}
+                                    lineHeight={0}
+                                    >
+                                        <ArrowUpwardIcon className='fonBold'></ArrowUpwardIcon>
+                                    </SoftBox>
+                                    <SoftTypography
+                                    variant='button'
+                                    fontSize={size.md}
+                                    ownerState={{
+                                        color:'text',
+                                    }}
+                                    >
+                                        4% more{""}
+                                        <SoftTypography variant="button" fontWeight="regular"
+                                        ownerState={{color:'text'}}
+                                        >
+                                            in 2021
+                                        </SoftTypography>
+                                    </SoftTypography>
+                                </SoftBox>
+                            }
+                            >
+
+                            </GradientLineChart>
                         </Grid>
 
                     </Grid>

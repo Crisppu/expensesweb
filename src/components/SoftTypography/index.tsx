@@ -23,7 +23,7 @@ const SoftTypography : React.FC<TypographyProps> = ({ownerState, children, ...re
 
 export default SoftTypography;
 /**
- * ejemplo usando forwarRef
+ * ejemplo usando forwardRef
  * const SoftTypography = forwardRef<HTMLDivElement,TypographyProps>(({ ownerState, children, ...rest },ref) => {
     return(
         <SoftTypographyRoot
