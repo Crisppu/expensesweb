@@ -47,7 +47,7 @@ export const SoftTypographyRoot = styled(Typography)<TypographyProps>(({ theme, 
 
     return {
         color: res,
-        validFontWeight,
+        fontWeight:validFontWeight.fontWeight,
         textTransform:textTransform,
         verticalAlign: verticalAlign,
         textGradient:textGradient,

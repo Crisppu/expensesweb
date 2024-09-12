@@ -26,7 +26,7 @@ function boxShadow(
   radius: [number, number] = [0, 0],
   color: string,
   opacity: number,
-  inset: string = ""
+  inset?: string //tenia por default "", se le tiene que pasar por parametro
 ): string {
   const [x, y] = offset;
   const [blur, spread] = radius;

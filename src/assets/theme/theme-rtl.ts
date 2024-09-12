@@ -12,73 +12,84 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+import '@mui/material/styles';
+
 
 // @mui material components
 import { createTheme } from "@mui/material/styles";
 
 // Soft UI Dashboard React base styles
-import colors from "./base/colors";
-import breakpoints from "./base/breakpoints";
-import typography from "./base/typography";
-import boxShadows from './base/boxShadows';
-import borders from "./base/borders";
-import globals from "./base/globals";
+import colors from "./base/colors.ts";
+import breakpoints from "./base/breakpoints.ts";
+import typography from './base/typography.ts';
+import boxShadows from './base/boxShadows.ts';
+import borders from "./base/borders.ts";
+import globals from "./base/globals.ts";
 
 // Soft UI Dashboard React helper functions
 import boxShadow from './functions/boxShadow.ts';
 
-import hexToRgb from './functions/hexToRgb';
-import linearGradient from './functions/linearGradient';
-import pxToRem from './functions/pxToRem';
-import rgba from "./functions/rgba";
+import hexToRgb from './functions/hexToRgb.ts';
+import linearGradient from './functions/linearGradient.ts';
+import pxToRem from './functions/pxToRem.ts';
+import rgba from "./functions/rgba.ts";
 
 // Soft UI Dashboard React components base styles for @mui material components
-import sidenav from "./components/sidenav";
+import sidenav from "./components/sidenav.ts";
 
-import list from "./components/list";
-import listItem from "./components/list/listItem";
-import listItemText from "./components/list/listItemText";
-import card from "./components/card";
-import cardMedia from "./components/card/cardMedia";
-import cardContent from "./components/card/cardContent";
-import button from "./components/button";
-import iconButton from "./components/iconButton";
+import list from "./components/list/index.ts";
+import listItem from "./components/list/listItem.ts";
+import listItemText from "./components/list/listItemText.ts";
+import card from "./components/card/index.ts";
+import cardMedia from "./components/card/cardMedia.ts";
+import cardContent from "./components/card/cardContent.ts";
+import button from "./components/button/index.ts";
+import iconButton from "./components/iconButton.ts";
 
-import inputBase from "./components/form/inputBase";
-import menu from "./components/menu";
-import menuItem from "./components/menu/menuItem";
-import switchButton from "./components/form/switchButton";
-import divider from "./components/divider";
-import tableContainer from "./components/table/tableContainer";
-import tableHead from "./components/table/tableHead";
-import tableCell from "./components/table/tableCell";
-import linearProgress from "./components/linearProgress";
-import breadcrumbs from "./components/breadcrumbs";
-import slider from './components/slider';
-import avatar from "./components/avatar";
-import tooltip from "./components/tooltip";
-import appBar from "./components/appBar";
-import tabs from "./components/tabs";
-import tab from "./components/tabs/tab";
-import stepper from "./components/stepper";
-import step from "./components/stepper/step";
-import stepConnector from "./components/stepper/stepConnector";
-import stepLabel from "./components/stepper/stepLabel";
-import stepIcon from "./components/stepper/stepIcon";
-import select from "./components/form/select";
-import formControlLabel from "./components/form/formControlLabel";
-import formLabel from "./components/form/formLabel";
-import checkbox from "./components/form/checkbox";
-import radio from "./components/form/radio";
-import autocomplete from "./components/form/autocomplete";
-import input from "./components/form/input";
-import container from "./components/container";
-import popover from "./components/popover";
-import buttonBase from "./components/buttonBase";
-import icon from "./components/icon";
-import svgIcon from "./components/svgIcon";
+import inputBase from "./components/form/inputBase.ts";
+import menu from "./components/menu/index.ts";
+import menuItem from "./components/menu/menuItem.ts";
+import switchButton from "./components/form/switchButton.ts";
+import divider from "./components/divider.ts";
+import tableContainer from "./components/table/tableContainer.ts";
+import tableHead from "./components/table/tableHead.ts";
+import tableCell from "./components/table/tableCell.ts";
+import linearProgress from "./components/linearProgress.ts";
+import breadcrumbs from "./components/breadcrumbs.ts";
+import slider from './components/slider.ts';
+import avatar from "./components/avatar.ts";
+import tooltip from "./components/tooltip.ts";
+import appBar from "./components/appBar.ts";
+import tabs from "./components/tabs/index.ts";
+import tab from "./components/tabs/tab.ts";
+import stepper from "./components/stepper/index.ts";
+import step from "./components/stepper/step.ts";
+import stepConnector from "./components/stepper/stepConnector.ts";
+import stepLabel from "./components/stepper/stepLabel.ts";
+import stepIcon from "./components/stepper/stepIcon.ts";
+import select from "./components/form/select.ts";
+import formControlLabel from "./components/form/formControlLabel.ts";
+import formLabel from "./components/form/formLabel.ts";
+import checkbox from "./components/form/checkbox.ts";
+import radio from "./components/form/radio.ts";
+import autocomplete from "./components/form/autocomplete.ts";
+import input from "./components/form/input.ts";
+import container from "./components/container.ts";
+import popover from "./components/popover.ts";
+import buttonBase from "./components/buttonBase.ts";
+import icon from "./components/icon.ts";
+import svgIcon from "./components/svgIcon.ts";
 //import link from "./components/link";
 // import rgba from 'assets/theme/functions/rgba';
+
+export const Sizes = {
+    xxs: typography.size.xxs,
+    xs: typography.size.xs,
+    sm: typography.size.sm,
+    md: typography.size.md,
+    lg: typography.size.lg,
+    xl: typography.size.xl,
+};
 
 declare module '@mui/material/styles' {
     interface PaletteColor {
@@ -89,8 +100,8 @@ declare module '@mui/material/styles' {
         focus?: string;
     }
     interface TypeText {
-        main?: string;
-        focus?: string;
+        main: string;
+        focus: string;
     }
     interface Palette{
         //text:TypeText;
@@ -217,6 +228,7 @@ declare module '@mui/material/styles' {
         inputColors: {
             borderColor: {
               main: string;
+              focus: string;
             };
             boxShadow: string;
             error: string;
@@ -411,6 +423,7 @@ declare module '@mui/material/styles' {
         inputColors?: {
             borderColor?: {
               main?: string;
+              focus?: string;
             };
             boxShadow?: string;
             error?: string;
@@ -568,7 +581,6 @@ declare module '@mui/material/styles' {
           rgba?: (color: string, opacity: number) => string;
         };
     }
-    
 
 }
 
@@ -607,7 +619,7 @@ const theme = createTheme({
       },
       text: {
         main: colors.text.main,
-        //focus: colors.text.focus,
+        focus: colors.text.focus,
       },
       // Propiedades adicionales de PaletteOptions(se configuran de forma opcional):
       transparent: {
@@ -805,6 +817,7 @@ const theme = createTheme({
         inputColors: {
             borderColor: {
               main: colors.inputColors.borderColor.main,
+              focus: colors.inputColors.borderColor.focus,
             },
             boxShadow: colors.inputColors.boxShadow,
             error: colors.inputColors.error,

@@ -17,12 +17,14 @@ import typography from '../../assets/theme/base/typography';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import SoftTypography from '../../components/SoftTypography';
 import gradientLineChartData from './data/gradientLineChartData';
+import DashboardNavbar from '../../examples/NavBars/DashboardNavbar';
 
 const Dashboard: React.FC = () => {
     const { chart, items } = ReportsBarChartData;
     const {size} = typography
     return (
         <DashboardLayout>
+            <DashboardNavbar />
             <SoftBox py={4}>
                 <SoftBox mb={3}>
                     <Grid container spacing={3}>

@@ -32,7 +32,7 @@ import { SxProps } from '@mui/system';
         ownerState?: OwnerState;
         children?: React.ReactNode;
         key?: string;
-        // Aquí puedes añadir otras propiedades que quieras pasar a SoftBox
+        // Aqui puedes añadir otras propiedades que quieras pasar a SoftBox
         className?: string;
         width?: string;
         display?: string;
@@ -44,7 +44,7 @@ import { SxProps } from '@mui/system';
         lineHeight?: number;
         fontSize?: string;
         sx?: SxProps<Theme>;
-        mb?: number;
+        mb?: number| { [key: string]: number };
         py?:number;
         mx?: number;
         bgColor?:string;
@@ -61,7 +61,7 @@ import { SxProps } from '@mui/system';
         alt?: string;
         position?: "absolute" | "relative" | "fixed" | "sticky";
         left?: number;
-        mr?:number;
+        mr?: number | { [key: string]: number };
         mt?:number;
         padding?:string;
         pr?:number;
